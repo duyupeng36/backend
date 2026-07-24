@@ -46,7 +46,8 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 > 这是整个学习计划的基石。C 语言不只是语法，更是理解内存和硬件的入口。
 
 #### 第 1 周：C 语言全貌
-- C 标准演进（K&R → C89/99/11/17），编译模型（预处理→编译→汇编→链接）
+- C 标准演进（K&R → C89 → C99 → C11 → C17 → **C23**），编译模型（预处理→编译→汇编→链接）
+- C23 新特性概览：`nullptr` 常量、`typeof` / `typeof_unqual`、`auto` 类型推导增强、`constexpr`（编译期常量对象）、`#embed`（编译期嵌入二进制）、`{}` 空初始化器、`#elifdef` / `#elifndef`、`stdbit.h`（位操作工具）
 - 基础类型系统：char/short/int/long, signed/unsigned, float/double
 - 运算符、表达式、控制流（与 Python 对比差异）
 - 第一个程序：`gcc`、`make`、`gdb` 三件套上手
