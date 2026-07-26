@@ -76,12 +76,38 @@ timeline
 
 现代 C 语言书籍 [Modern C](https://inria.hal.science/hal-02383654v2) 学习笔记
 
+### Level 0 · Encounter
 
-## Level 0 · Encounter
+#### ch01 — [快速入门](ch01-getting-started.md) ☑ 已完成
+- [x] 知识点 1：命令式编程
+- [x] 知识点 2：编译型语言
+- [x] 知识点 3：编译器是朋友
 
-+ [快速入门](ch01-getting-started.md)
-+ [程序的基本结构](ch02-principal-structure.md)
+#### ch02 — [程序的基本结构](ch02-principal-structure.md) ☑ 已完成
+- [x] 知识点 1：语法（Grammar）
+- [x] 知识点 2：声明（Declarations）
+- [x] 知识点 3：定义（Definitions）
+- [x] 知识点 4：语句（Statements）
 
-## Level 1 · Acquaintance
+### Level 1 · Acquaintance
 
-+ [控制流](ch03-control-flow.md)
+#### ch03 — [控制流](ch03-control-flow.md) ☑ 已完成
+- [x] 知识点 1：条件执行（if）
+- [x] 知识点 2：for 循环
+- [x] 知识点 3：while 循环
+- [x] 知识点 4：do-while 循环
+- [x] 知识点 5：break 和 continue
+- [x] 知识点 6：多路选择（switch）
+
+#### ch04 — 表达计算（Expressions） ☐ 未开始
+- [ ] 知识点 1：待定
+- [ ] 知识点 2：待定
+
+#### ch05 — 待定 ☐ 未开始
+- [ ] 知识点 1：待定
+
+#### ch06 — 待定 ☐ 未开始
+- [ ] 知识点 1：待定
+
+#### ch07 — 待定 ☐ 未开始
+- [ ] 知识点 1：待定

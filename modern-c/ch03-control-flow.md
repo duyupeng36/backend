@@ -16,7 +16,7 @@ C 语言通过六种控制结构来管理程序的执行路径。条件执行（
 
 ## 📖 知识点
 
-### 知识点 1：条件执行（Conditional Execution）— `if`
+### 知识点 1：条件执行（Conditional Execution）— `if` ☑ 已完成
 
 **是什么**
 
@@ -258,7 +258,7 @@ int main(int argc, char* argv[argc + 1]) {
 
 ---
 
-### 知识点 2：`for` 循环
+### 知识点 2：`for` 循环 ☑ 已完成
 
 **是什么**
 
@@ -394,7 +394,7 @@ for (clause1; condition2; expression3) secondary-block
 
 ---
 
-### 知识点 3：`while` 循环
+### 知识点 3：`while` 循环 ☑ 已完成
 
 **是什么**
 
@@ -508,7 +508,7 @@ while (fabs(1.0 - a*x) >= ε) {    // 只要还没达到精度
 
 ---
 
-### 知识点 4：`do-while` 循环
+### 知识点 4：`do-while` 循环 ☑ 已完成
 
 **是什么**
 
@@ -585,7 +585,7 @@ do {
 
 ---
 
-### 知识点 5：`break` 和 `continue` 语句
+### 知识点 5：`break` 和 `continue` 语句 ☑ 已完成
 
 **是什么**
 
@@ -696,7 +696,7 @@ for (size_t i = 0; i < max_iterations; ++i) {
 
 ---
 
-### 知识点 6：多路选择（Multiple Selections）— `switch`
+### 知识点 6：多路选择（Multiple Selections）— `switch` ☑ 已完成
 
 **是什么**
 
@@ -865,5 +865,5 @@ switch (x) {
 - [ ] 能解释"数值即真值"的含义，正确使用 `if (x)` 替代 `if (x != 0)`，理解无符号整数溢出按 `SIZE_MAX+1` 取模回绕
 - [ ] 能写出 `for` 循环的四个组成部分，能根据场景选择合适的循环（次数明确→`for`，次数未知→`while`，至少一次→`do-while`）
 - [ ] 理解 `switch` 的 fall-through 是刻意设计，能列举三种有意利用穿透的场景（多 case 共享、范围映射、状态机）
-- [ ] 能熟练使用 `break` 提前终止循环，用 `continue` 跳过当前迭代
-- [ ] 知道 `case` 标签的值必须是整型常量表达式，且不能跳过变量定义
+- [ ] 能熟练使用 `break` 提前终止循环（如 `while(true)` + `break` 模式），用 `continue` 跳过当前迭代（如跳过偶数 `if (i%2==0) continue`）
+- [ ] 知道 `case` 值必须唯一且为整型常量表达式，每个 `case` 应以 `break` 结尾防止穿透，`case` 标签不能跳过变量定义
