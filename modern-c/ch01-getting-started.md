@@ -263,8 +263,8 @@ gcc -std=c23 -Wall -Werror bad.c
 
 ## ✅ 自检
 
-- [x] 能解释"命令式编程"和"编译型语言"的含义
-- [x] 能写出完整的 C 程序骨架（`include → main → printf → return`）
-- [x] 知道编译命令 `gcc -std=c23 -Wall -o` 每个参数的意思
-- [x] 理解编译器警告的重要性，能举例三种常见警告
-- [x] 能看懂 `getting-started.c` 的每一行在做什么
+- [ ] 能解释"命令式编程"和"编译型语言"的含义，知道 C 源码到可执行文件的四个编译阶段
+- [ ] 能写出完整的 C 程序骨架（`#include → main → printf → return EXIT_SUCCESS`）
+- [ ] 知道编译命令 `gcc -std=c23 -Wall -Werror -o` 每个参数的意思，理解零警告的重要性
+- [ ] 知道 `size_t` 是无符号整数类型，用于表示大小和计数等不需要负数的场景
+- [ ] 理解指定初始化器 `[n]=value` 的用途：明确标识每个元素的值，漏掉的位置自动填 0
