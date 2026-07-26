@@ -23,7 +23,7 @@
 
 | 教材 | 已读 | 进度 |
 |------|------|------|
-| 《Modern C》3rd Edition (C23) | ch01, ch02, ch03, ch04 | 4/21 |
+| 《Modern C》3rd Edition (C23) | ch01, ch02, ch03, ch04, ch05 | 5/21 |
 | K&R《C 程序设计语言》 | — | 0 |
 
 ---
@@ -59,9 +59,9 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 #### 第 1 周：C 语言全貌 ☐ 进行中
 - [x] C 标准演进（K&R → C89 → C99 → C11 → C17 → **C23**），编译模型（预处理→编译→汇编→链接）
 - [x] 控制流：if / for / while / do-while / break-continue / switch
+- [x] 运算符与表达式（ch04 完成：算术/比较/逻辑/赋值/三元/求值顺序）
 - [x] `gcc` 编译上手（`-std=c23 -Wall -Werror`）
-- [ ] 基础类型系统（size_t/int/double/bool 已初步接触，待系统学习）
-- [ ] 运算符与表达式
+- [ ] 基础类型系统（ch05 进行中：size_t/int/double/bool 已初步接触）
 - [ ] `make` 构建工具
 - [ ] `gdb` 调试器
 - [ ] ✍️ 练习：用 C 重写 3 个你熟悉的 Python 小脚本
