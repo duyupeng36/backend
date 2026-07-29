@@ -256,6 +256,22 @@ int main(int argc, char* argv[argc + 1]) {
 - [x] **练习 5**：完整程序 — 判断一个整数是正数、负数还是零，保存到 `code/ch03/sign.c`
 - [x] **练习 6**：完整程序 — 输入一个年份，判断是否为闰年（能被 4 整除但不能被 100 整除，或者能被 400 整除），保存到 `code/ch03/leap.c`
 
+  ```c
+  // max3.c 核心逻辑
+  if (a > b) { max = (a > c) ? a : c; }
+  else       { max = (b > c) ? b : c; }
+  
+  // sign.c 核心逻辑
+  if (n > 0)      puts("positive");
+  else if (n < 0) puts("negative");
+  else            puts("zero");
+  
+  // leap.c 核心逻辑
+  if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+      puts("leap year");
+  else puts("not leap year");
+  ```
+
 ---
 
 ### 知识点 2：`for` 循环 ☑ 已完成
@@ -392,6 +408,17 @@ for (clause1; condition2; expression3) secondary-block
     + `code/ch03/primes.c`：遍历所有的奇数，奇数的因子也只能是奇数，跳过 $5$ 的倍数（减少遍历次数）
     + `code/ch03/primes2.c`：孪生素数：对于素数 $p$,如果 $p+2$ 仍然是素数，称 $(p, p+2)$ 为孪生素数。除了特殊的 $(3,5)$ 之外，其他的孪生素数对都满足 $(6k-1, 6k+1),k=1,2...$ 。因此，我们可以依据孪生素数猜想对来生成目标值列表
 
+  ```c
+  // primes.c 核心逻辑：只检查奇数，跳过 5 的倍数
+  for (int target = 3; target <= N; target += 2) {
+      if (target != 5 && !(target % 5)) continue;
+      bool prime = true;
+      for (int f = 3; f * f <= target; f += 2)
+          if (!(target % f)) { prime = false; break; }
+      if (prime) ++count;
+  }
+  ```
+
 ---
 
 ### 知识点 3：`while` 循环 ☑ 已完成
@@ -488,6 +515,15 @@ while (fabs(1.0 - a*x) >= ε) {    // 只要还没达到精度
 
 - [x] **练习 3**：完整程序 — 用 `while` 循环分解一个整数的各位数字并求和（如输入 1234，输出 1+2+3+4=10），保存到 `code/ch03/digitsum.c`
 
+  ```c
+  // gcd.c 核心逻辑
+  while (b != 0) { long t = b; b = a % b; a = t; }
+
+  // digitsum.c 核心逻辑
+  long sum = 0;
+  while (n > 0) { sum += n % 10; n /= 10; }
+  ```
+
 - [x] **练习 4**：完整程序 — 使用快速幂计算 $a^n$，保存到 `code/ch03/power.c`
 
     
@@ -582,6 +618,22 @@ do {
 - [x] **练习 2**：完整程序 — 用 `do-while` 循环实现输入校验：反复提示用户输入一个 1~100 之间的正整数，直到输入合法为止，然后打印该数字，保存到 `code/ch03/validate.c`
 
 - [x] **练习 3**：完整程序 — 用 `do-while` 循环实现一个简易菜单：显示选项（1. 打招呼 2. 报时 3. 退出），根据用户选择执行对应操作，直到用户选择退出，保存到 `code/ch03/menu.c`
+
+  ```c
+  // validate.c 核心逻辑
+  int n;
+  do { scanf("%d", &n); } while (n < 1 || n > 100);
+  
+  // menu.c 核心逻辑
+  int choice;
+  do {
+      scanf("%d", &choice);
+      switch (choice) {
+          case 1: puts("hello"); break;
+          case 2: /* print current time */ break;
+      }
+  } while (choice != 3);
+  ```
 
 ---
 
@@ -693,6 +745,16 @@ for (size_t i = 0; i < max_iterations; ++i) {
   ```
 
 - [x] **练习 3**：完整程序 — 用 `while (true)` + `break` 实现：反复读取用户输入的整数，累加求和。当用户输入 0 时终止并打印总和，保存到 `code/ch03/sum_until_zero.c`
+
+  ```c
+  // sum_until_zero.c 核心逻辑
+  int total = 0, n;
+  while (true) {
+      scanf("%d", &n);
+      if (n == 0) break;
+      total += n;
+  }
+  ```
 
 ---
 
@@ -836,6 +898,19 @@ switch (x) {
 
 - [x] **练习 3**：完整程序 — 用 `switch` 实现一个简单的四则运算计算器：输入两个数和运算符（+ - * /），输出计算结果。除法需检查除数为 0，保存到 `code/ch03/calculator.c`
 
+  ```c
+  // calculator.c 核心逻辑
+  switch (op) {
+      case '+': printf("%d\n", a + b); break;
+      case '-': printf("%d\n", a - b); break;
+      case '*': printf("%d\n", a * b); break;
+      case '/':
+          if (b) printf("%g\n", (double)a / b);
+          else   fprintf(stderr, "除数不能为 0\n");
+          break;
+  }
+  ```
+
 ---
 
 ## 📝 章节练习
@@ -846,6 +921,29 @@ switch (x) {
 | 2 | 用 `while` 循环实现：输入一个正整数，反复除以 10 直到变为 0，统计这个数字有几位（如 12345 为 5 位），保存到 `code/ch03/numdigits.c` (已完成) | ⭐⭐ | ☑ |
 | 3 | 用 `do-while` 循环实现猜数字游戏：程序随机生成一个 1~100 的数，反复提示用户猜，每次告知"大了"或"小了"，直到猜中，统计猜测次数并打印，保存到 `code/ch03/guess.c` (已完成) | ⭐⭐ | ☑ |
 
+```c
+// factorial.c 核心逻辑（倒序，检测溢出）
+size_t result = 1, prev;
+for (size_t i = n; i >= 1; --i) {
+    prev = result;
+    result *= i;
+    if (result < prev) { /* 溢出 */ }
+}
+
+// numdigits.c 核心逻辑
+size_t count = (n == 0) ? 1 : 0;
+while (n > 0) { ++count; n /= 10; }
+
+// guess.c 核心逻辑
+int target = rand() % 100 + 1, guess, count = 0;
+do {
+    scanf("%d", &guess);
+    if (guess > target)      puts("大了");
+    else if (guess < target) puts("小了");
+    ++count;
+} while (guess != target);
+```
+
 ---
 
 ## 🤔 疑问记录
@@ -855,8 +953,6 @@ switch (x) {
 | 1 | `size_t` 类型执行 `--i` 到 0 以下时为何回绕到 `SIZE_MAX` 而不是变成负数？(``-1` 的位模式全为 `1` 但 `size_t` 类型按照无符号解释为 `SIZE_MAX`)无符号整数溢出的底层机制是什么？(将结果与 `SIZE_MAX + 1`取模，即 `% (SIZE_MAX + 1)`) | ☑ 已解答 |
 | 2 | `for`、`while`、`do-while` 三种循环可以完全互相替代吗？如果可以，为什么 C 还要提供三种？(答案：`for` 和 `while` 可以相互替代，`do-while` 虽然也可以使用其他循环替代，但是通常不会这么做。提供三种循环是为了适应不同的使用场景) | ☑ 已解答 |
 | 3 | `switch` 的 fall-through 是刻意设计还是语言缺陷？（答案：并非语言缺陷，而是故意设计的特性）除了教材的三角形示例，还有哪些有意利用穿透的场景？（答案：1. 多个 case 共享同一处理，如 `case 'a': case 'A':` 大小写不敏感匹配；2. 范围映射，如 `case 10: case 9:` 映射到同一等级；3. 状态机/解析器中每个 `case` 处理完当前阶段后自然落到下一阶段） | ☑ 已解答 |
-
-
 
 ---
 
