@@ -913,39 +913,6 @@ switch (x) {
 
 ---
 
-## 📝 章节练习
-
-| 编号 | 题目 | 难度 | 完成 |
-|------|------|------|------|
-| 1 | 用 `for` 循环实现阶乘计算：输入一个正整数 n，输出 n!（n 的阶乘），保存到 `code/ch03/factorial.c`。提示：`size_t` 类型可能溢出，考虑如何处理(已完成) | ⭐⭐ | ☑ |
-| 2 | 用 `while` 循环实现：输入一个正整数，反复除以 10 直到变为 0，统计这个数字有几位（如 12345 为 5 位），保存到 `code/ch03/numdigits.c` (已完成) | ⭐⭐ | ☑ |
-| 3 | 用 `do-while` 循环实现猜数字游戏：程序随机生成一个 1~100 的数，反复提示用户猜，每次告知"大了"或"小了"，直到猜中，统计猜测次数并打印，保存到 `code/ch03/guess.c` (已完成) | ⭐⭐ | ☑ |
-
-```c
-// factorial.c 核心逻辑（倒序，检测溢出）
-size_t result = 1, prev;
-for (size_t i = n; i >= 1; --i) {
-    prev = result;
-    result *= i;
-    if (result < prev) { /* 溢出 */ }
-}
-
-// numdigits.c 核心逻辑
-size_t count = (n == 0) ? 1 : 0;
-while (n > 0) { ++count; n /= 10; }
-
-// guess.c 核心逻辑
-int target = rand() % 100 + 1, guess, count = 0;
-do {
-    scanf("%d", &guess);
-    if (guess > target)      puts("大了");
-    else if (guess < target) puts("小了");
-    ++count;
-} while (guess != target);
-```
-
----
-
 ## 🤔 疑问记录
 
 | 编号 | 疑问 | 状态 |
