@@ -2,7 +2,7 @@
 
 > 章节：第 2 章 · The Principal Structure of a Program（程序的基本结构）  
 > 日期：2026-07-25  
-> 状态：☑ 已完成
+> 状态：
 
 ---
 
