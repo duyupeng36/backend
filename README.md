@@ -19,14 +19,6 @@
 
 ---
 
-## 📚 教材阅读进度
-
-| 教材 | 已读 | 进度 |
-|------|------|------|
-| 《Modern C》3rd Edition (C23) | ch01, ch02, ch03, ch04, ch05 | 5/21 |
-
----
-
 ```
 依赖链：
 C 语言 ──→ 操作系统 ──→ Linux 系统编程
@@ -56,43 +48,44 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 > 这是整个学习计划的基石。C 语言不只是语法，更是理解内存和硬件的入口。
 
 #### 第 1 周：C 语言全貌 ☐ 进行中
-- [x] C 标准演进（K&R → C89 → C99 → C11 → C17 → **C23**），编译模型（预处理→编译→汇编→链接）
-- [x] 控制流：if / for / while / do-while / break-continue / switch
-- [x] 基础类型系统（ch05 完成：基本类型、语义类型、字面量、隐式转换、初始化器、命名常量、位运算、补码、浮点表示）
-- [x] 运算符与表达式（ch04 完成）
-- [x] `gcc` 编译上手
+> 📖 Modern C: ch01 Getting started + ch02 Program structure + ch03 Control flow + ch04 Expressing computations + ch05 Basic values and data
+- [ ] C 标准演进（K&R → C89 → C99 → C11 → C17 → **C23**）
+- [ ] 编译模型（预处理→编译→汇编→链接）
+- [ ] 控制流
+- [ ] 基础类型系统
+- [ ] 运算符与表达式
+- [ ] `gcc` 编译上手
 - [ ] ✍️ [阶段 1 综合练习](exercises/week01-exercises.md)（基础概念 6 + 编程题 15 + 思考题 6 + 挑战题 5）
 
 #### 第 2 周：函数、数组与字符串 ☐ 未开始
+> 📖 Modern C: ch06 Derived data types（数组、字符串）+ ch07 Functions + ch08 C library functions
 - 函数原型、传值语义、递归
 - 作用域：块/文件/static/extern
 - 数组（一维/多维）、C 风格字符串（`\0` 终止）
 - `string.h` 标准库函数全览（strlen/strcpy/strcmp/strcat/strstr）
-- 📖 《Modern C》第 5~7 章（Basic values / Derived data types / Functions）
 - ✍️ 项目：实现 `mystring` 库——手写所有 string.h 函数，不许调用标准库
 
 #### 第 3 周：指针（上）——概念与运算
+> 📖 Modern C: ch11 Pointers（上）
 - 地址与指针：`&`（取地址）、`*`（解引用）
 - 指针运算：`p++`、`p+n`、`p-q`、指针比较
 - 指针与数组：`arr[i]` ≡ `*(arr+i)`，数组名退化为指针
 - 指针与函数：传值 vs 传指针，通过指针修改外部变量
-- 📖 《Modern C》第 11~12 章（Pointers / C memory model）+ 《C 和指针》第 6~8 章
 - ✍️ 练习：反转数组、字符串拷贝、动态求和——全部用指针操作，不许用 `[]`
 
 #### 第 4 周：指针（下）——进阶应用
+> 📖 Modern C: ch11 Pointers（下）+ 函数指针
 - 多级指针：`int **p`，指针的指针
-
-#### 第 5 周：动态内存管理
-- `make` 构建工具：Makefile 基础（目标/依赖/命令）、变量、自动变量（`$@` `$^`）、伪目标
-- `gdb` 调试器：断点、单步、查看变量、调用栈、条件断点
-- `malloc` / `calloc` / `realloc` / `free` 详解
-- const 与指针：`const int *p` vs `int * const p` vs `const int * const p`
+- `const` 与指针：`const int *p` vs `int * const p` vs `const int * const p`
 - 函数指针：`int (*f)(int, int)`，回调、策略模式
 - `void*`：C 的泛型指针，实现泛型的唯一手段
 - 复杂声明解读：顺时针/螺旋法则
 - ✍️ 项目：用函数指针数组实现命令调度器——输入命令名，路由到对应处理函数
 
 #### 第 5 周：动态内存管理
+> 📖 Modern C: ch12 The C memory model + ch13 Storage
+- `make` 构建工具：Makefile 基础（目标/依赖/命令）、变量、自动变量（`$@` `$^`）、伪目标
+- `gdb` 调试器：断点、单步、查看变量、调用栈、条件断点
 - 进程内存布局：代码段 / 数据段 / BSS / 堆 / 栈（**画图记在脑子里**）
 - `malloc` / `calloc` / `realloc` / `free` 详解
 - 常见内存错误：泄漏、悬空指针、双重释放、越界访问、未初始化
@@ -101,6 +94,7 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - ✍️ 项目：实现动态数组（`vector` 玩具版）——自动扩容/缩容，支持任意类型（void* + 元素大小），Valgrind 零泄漏
 
 #### 第 6 周：结构体、联合体与位操作
+> 📖 Modern C: ch06 Derived data types（struct/union/enum/位域）
 - struct：定义、初始化、对齐与填充、`offsetof`
 - 结构体与指针：`->` 运算符，链表节点的标准写法
 - union：共享内存、类型双关、tagged union 模式
@@ -110,6 +104,7 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - ✍️ 项目：手写简化版 JSON 解析器——支持整数、字符串、嵌套对象、数组
 
 #### 第 7 周：数据结构（一）——线性结构
+> 📖 综合应用：ch06（struct）+ ch11（指针）+ ch13（动态内存）
 - **链表**：单向、双向、循环；增删改查；反转链表；合并有序链表
 - **栈**：数组实现 + 链表实现；括号匹配、表达式求值
 - **队列**：数组实现（环形缓冲区）+ 链表实现
@@ -117,6 +112,7 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - ✍️ 练习：每种结构至少实现插入、删除、遍历、查找、销毁五项操作
 
 #### 第 8 周：数据结构（二）——哈希表
+> 📖 综合应用：ch06 + ch11 + ch13
 - 哈希函数设计（DJB2、MurmurHash 简介）
 - 冲突解决：链表法 vs 开放寻址法
 - 负载因子与动态扩容（rehash）
@@ -124,6 +120,7 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - ✍️ 项目：泛型哈希表库——可存储任意类型，支持 SET/GET/DEL/EXISTS
 
 #### 第 9 周：数据结构（三）——树
+> 📖 综合应用：ch06 + ch11 + ch13
 - 二叉树：定义、遍历（前/中/后序递归+迭代、层序）
 - 二叉搜索树（BST）：插入、查找、删除（三种情况）
 - 平衡概念：为什么需要 AVL/红黑树（理解动机即可，实现放在算法阶段）
@@ -131,6 +128,7 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - ✍️ 项目：BST 库 + 堆库，每种至少实现插入、查找、删除、遍历
 
 #### 第 10 周：I/O 与文件系统
+> 📖 Modern C: ch14 More involved processing and IO
 - 标准 I/O：`fopen`/`fclose`/`fread`/`fwrite`/`fseek`/`ftell`/`fflush`
 - 格式化 I/O：`printf`/`scanf` 家族，缓冲区机制
 - 二进制 vs 文本文件，字节序（大端/小端）
@@ -139,15 +137,18 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - ✍️ 项目：文件拷贝工具——支持二进制、大文件分块、进度显示
 
 #### 第 11 周：编译与构建
+> 📖 Modern C: ch09 Style + ch10 Organization and documentation + ch17 Function-like macros
 - 预处理（宏、条件编译）→ 编译 → 汇编 → 链接 全过程
 - 看懂 `gcc -E` / `gcc -S` / 反汇编输出
 - 静态库（`.a`）vs 动态库（`.so`）：制作、链接、加载
 - Makefile 精通：规则、自动变量、模式规则
 - GDB 调试：断点、单步、watch、调用栈、core dump
 - 地址消毒器（ASan）：比 Valgrind 更快
+- 代码风格与项目组织（ch09 + ch10）
 - ✍️ 练习：把前面写的库全部编译成静态库，用 Makefile 管理
 
 #### 第 12 周：阶段项目 —— mini-kv 存储引擎 V1
+> 📖 Modern C: ch15 Program failure（错误处理）+ 全阶段整合
 - 整合前 11 周所有知识
 - **内存引擎**：泛型哈希表存储全量数据
 - **AOF 持久化**：每次写操作追加日志文件
