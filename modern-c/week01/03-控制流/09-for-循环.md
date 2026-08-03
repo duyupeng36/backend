@@ -137,5 +137,119 @@ int main(int argc, char* argv[argc + 1]) {
 >
 > `square2.c` 的 `clause1` 中声明了三个变量，`expression3` 中同时更新它们——这就是笔记中"两个循环变量"模式的实际应用
 
+`primes.c` — 统计 $N$ 以内素数的个数（暴力解法：从第一个素数 $2$ 开始遍历直到 $N$）
 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[argc + 1]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    size_t number = strtoull(argv[1], nullptr, 0);
+
+    size_t count = 0;
+
+    // 从 1 开始遍历到 number
+    for (size_t target = 2; target <= number; ++target) {
+        bool flag = true;
+        // 对于每个 number
+        for (size_t factor = 2;  factor * factor <= target; ++factor) {
+            if (!(target % factor)) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            ++count;
+        }
+    }
+
+    printf("There are a total of %zu prime numbers in %zu\n", count, number);
+    return EXIT_SUCCESS;
+}
+```
+
+`primes2.c` —  统计 $N$ 以内素数的个数（优化一：除了 $2$ 以外，所有素数都是奇数；奇数的因子不可能是偶数）
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[argc + 1]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    size_t number = strtoull(argv[1], nullptr, 0);
+
+    size_t count = 1;
+
+    // 从 1 开始遍历到 number
+    for (size_t target = 3; target <= number; target = target + 2) {
+        bool flag = true;
+        // 对于每个 number
+        for (size_t factor = 3;  factor * factor <= target; factor = factor + 2) {
+            if (!(target % factor)) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            ++count;
+        }
+    }
+
+    printf("There are a total of %zu prime numbers in %zu\n", count, number);
+    return EXIT_SUCCESS;
+}
+```
+
+`primes3.c` — 统计 $N$ 以内素数的个数（优化2：利用孪生素数猜想生成可选素数序列）
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[argc + 1]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    size_t number = strtoull(argv[1], nullptr, 0);
+
+    size_t count = 3;  // 2 3 5 是已知的素数
+
+    // 从 1 开始遍历到 number
+    for (size_t target = 7, step = 4; target <= number; target = target + step, step = 6 - step) {
+        // 对于大于 5 的数，5 的倍数一定不是素数
+        if (!(target % 5)) {
+            continue;
+        }
+        bool flag = true;
+        // 对于每个 number
+        for (size_t factor = 3;  factor * factor <= target; factor = factor + 2) {
+            if (!(target % factor)) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            ++count;
+        }
+    }
+
+    printf("There are a total of %zu prime numbers in %zu\n", count, number);
+    return EXIT_SUCCESS;
+}
+```
+
+> [!TIP]
+>
+> 孪生素数猜想：除了 $2$ 之外，存在无穷多个素数 $p$，使得 $p+2$ 也是素数。根据这个猜想，从 $5$ 开始，相邻两个素数满足 $(6k-1, 6k+1)$
 
