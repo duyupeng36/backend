@@ -3,11 +3,13 @@
 *.out
 *.i
 *.s
-01_hello
-02_types
-03_operators_flow
-04_*
-05_*
+*.exe
+
+# code 目录中的可执行文件（保留源文件和头文件）
+modern-c/*/code/*
+!modern-c/*/code/*.c
+!modern-c/*/code/*.h
+!modern-c/*/code/Makefile
 
 # 编辑器
 .vscode/
@@ -17,7 +19,11 @@
 
 # macOS
 .DS_Store
+
+# 书籍和脚本
 books/
 scripts/
+
+# 其他
 .mimocode
 .hermes/
