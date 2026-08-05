@@ -65,11 +65,20 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 > 计划时间：2026-07-31 ~ 2026-08-06 | 实际完成：
 > 📖 Modern C: ch06 Derived data types（数组、字符串）+ ch07 Functions + ch08 C library functions
 
-- 函数原型、传值语义、递归
-- 作用域：块/文件/static/extern
-- 数组（一维/多维）、C 风格字符串（`\0` 终止）
-- `string.h` 标准库函数全览（strlen/strcpy/strcmp/strcat/strstr）
-- ✍️ 项目：实现 `mystring` 库——手写所有 string.h 函数，不许调用标准库
+- 数组基础☑ 已完成
+- 多维数组☑ 已完成
+- 字符串基础☐
+- 字符串函数☐
+- 数组与指针☐
+- 函数基础☐
+- 传值语义☐
+- 作用域与生命周期☐
+- 递归☐
+- 函数指针☐
+- stdio.h 输入输出☐
+- string.h 字符串函数☐
+- math.h 数学函数☐
+- stdlib.h 工具函数☐
 
 #### 第 3 周：指针（上）——概念与运算
 > 📖 Modern C: ch11 Pointers（上）
