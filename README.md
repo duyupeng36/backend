@@ -50,7 +50,6 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 
 #### 第 1 周：C 语言全貌 ☑ 已完成
 > 计划时间：2026-07-24 ~ 2026-07-30 | 实际完成：2026-08-02
-
 > 📖 Modern C: ch01 Getting started + ch02 Program structure + ch03 Control flow + ch04 Expressing computations + ch05 Basic values and data
 
 - C 标准演进（K&R → C89 → C99 → C11 → C17 → **C23**）☑ 已完成
@@ -71,10 +70,8 @@ Go 后端 ←── 以上全部 + 数据库 + 网络
 - 字符串函数☑ 已完成
 - 数组与指针☑ 已完成
 - 函数基础☐ 进行中
-- 传值语义☐
-- 作用域与生命周期☐
+- main 函数☐
 - 递归☐
-- 函数指针☐
 - stdio.h 输入输出☐
 - string.h 字符串函数☐
 - math.h 数学函数☐
