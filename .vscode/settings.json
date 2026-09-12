@@ -1,0 +1,14 @@
+{
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "workbench.tree.indent": 18,
+    "clangd.path": "C:\\Program Files\\LLVM\\bin\\clangd.exe",
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--compile-commands-dir=${workspaceFolder}",
+        "--experimental-modules-support"
+    ],
+    "clangd.onConfigChanged": "restart",
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "clangd.useScriptAsExecutable": true
+}
