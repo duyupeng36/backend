@@ -26,6 +26,10 @@ Week 3: 指针入门                      Week 6: 综合实战与项目
 - **实践：** 编写 `hello.c`，使用 `gcc -Wall -Wextra -std=c23` 编译，理解编译警告
 - **产出：** 能手动完成编译全流程
 
+> 笔记:
+>
+> 1. [快速入门](快速入门.md)
+
 ### Day 2 — 变量与基本数据类型
 
 - **理论：** `int`/`float`/`double`/`char`、C23 关键字 `bool`/`true`/`false`（替代 `_Bool`）、`nullptr` 与 `nullptr_t`、`sizeof`、类型范围（`<limits.h>`）、常量与 `const`/`constexpr`（C23 编译期常量）
