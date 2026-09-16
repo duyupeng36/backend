@@ -1,0 +1,9 @@
+If:
+  PathMatch: [".*\\.c$"]
+CompileFlags:
+  Add: ["-std=c23", "--target=x86_64-w64-mingw32"]
+---
+If:
+  PathMatch: [".*\\.cpp$"]
+CompileFlags:
+  Add: ["-std=c++23", "--target=x86_64-w64-mingw32"]
