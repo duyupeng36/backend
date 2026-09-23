@@ -2,4 +2,6 @@
     "editor.fontSize": 18,
     "terminal.integrated.fontSize": 18,
     "workbench.tree.indent": 18,
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnPaste": true,
 }
