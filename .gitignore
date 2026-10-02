@@ -1,0 +1,81 @@
+# ========================
+# C/C++ 忽略项
+# ========================
+
+# Object files
+*.o
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.ilk
+
+# ========================
+# Go 忽略项
+# ========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# ========================
+# IDE/编辑器 忽略项
+# ========================
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ========================
+# 项目构建目录
+# ========================
+build/
+Debug/
+Release/
+x64/
+x86/
+bin/
+out/
+
+# ========================
+# 临时文件
+# ========================
+*.tmp
+*.bak
+*.log
