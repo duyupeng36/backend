@@ -111,28 +111,27 @@ backend/
 - 吃透 CSAPP 级别的系统观：缓存、并发、虚拟内存、I/O。
 - 理解数据库内核：索引、事务、日志、恢复。
 - **三个主线项目**（都放进 GitHub，写好 README + 设计文档）：
-  1. **mini-kv-cpp** —— C++ 实现的持久化 KV 存储（贯穿 M1–M7）
+  1. **mini-kv-cpp** —— C++ 实现的持久化 KV 存储（贯穿 M2–M7）
   2. **user-tcpip** —— 用户态 TCP/IP 协议栈 + HTTP demo（M10）
   3. **mini-db** —— B+Tree 存储引擎 + 迷你 SQL 层（M11–M12）
 
 ### 月度安排
 
-#### M1 · C 语言与底层工具链（快节奏打底）
+#### M1 · C++ 基础语法与底层工具链（快节奏打底）
 
-- C 语法速通：指针、数组、字符串、结构体、函数指针、手动内存管理（malloc/free）
-- 工具链：GCC（编译链接全流程 `-E -S -c`、静态/动态库）、GDB（断点、watch、core dump）、Makefile/CMake 入门
+- C++ 基础语法速通（覆盖绝大部分 C 语法结构）：类型/控制流/函数、指针与数组、字符串（C 字符串 + `std::string`）、结构体、引用 vs 指针、函数重载/默认参数、命名空间
+- 动态内存：`new/delete`、常见内存错误；valgrind / ASan（`-fsanitize=address`）
+- 工具链：g++（编译链接全流程 `-E -S -c`、静态/动态库）、GDB（断点、watch、backtrace、core dump）、Makefile/CMake 入门
 - Linux 基础：shell、文件权限、进程查看、`/proc`
-- **交付**：手写 `string`/`vector` 风格的 C 动态数组与字符串库 + 单元测试；用 GDB 排掉至少 3 个真实 bug（记录成文）
-- 阅读：《C 程序设计语言》(K&R) 选读 + Beej's Network Programming 前 3 章
+- **交付**：C++ 基础练习集（字符串处理 + `vec` 类 + 单元测试）；GDB 实战调试记录（4 个刻意 bug 定位成文）；工具链产物观察笔记
+- 阅读：《C++ Primer》(第 5 版) 第 1–4 章 + Beej's Network Programming 前 2 章（概念预热）
 
-#### M2 · C++ 核心（面向对象 + 资源管理）
+#### M2 · C 语言专题周 + C++ 核心（面向对象 + 资源管理）
 
-- 类与对象、构造/析构、拷贝控制（三/五法则）、运算符重载
-- RAII——本阶段最重要的思想；异常安全
-- 引用 vs 指针、`const` 体系、`static_cast` 系列
-- STL 第一遍：`vector/deque/list/map/unordered_map` 的使用与复杂度
-- **交付**：mini-kv-cpp 立项——实现 `get/set/del` 的内存版 KV（哈希表 + 链地址法），带 Benchmark 脚本
-- 阅读：《C++ Primer》(第 5 版) 第 1–13 章
+- **W1 C 语言专题周**（C++ 基础完成后集中 1 周）：C 与 C++ 的差异（无重载/引用/命名空间）、`malloc/free` 手动内存管理、函数指针与回调、`qsort`、C/C++ 混合编译（`extern "C"`）、纯 C 的 Makefile
+- **W2–W4 C++ 核心**：类与对象、构造/析构、拷贝控制（三/五法则）、运算符重载；RAII——本阶段最重要的思想；异常安全；`const` 体系、`static_cast` 系列；STL 第一遍：`vector/deque/list/map/unordered_map` 的使用与复杂度
+- **交付**：W1 交付 **c-utils**（纯 C 动态数组 + 字符串库 + 单元测试，valgrind 零报告）；W4 交付 **mini-kv-cpp 立项**——实现 `get/set/del` 的内存版 KV（哈希表 + 链地址法），带 Benchmark 脚本
+- 阅读：K&R《C 程序设计语言》选读（W1）；《C++ Primer》(第 5 版) 第 5–13 章（W2–W4）
 
 #### M3 · 现代 C++（移动语义 + 模板 + STL 源码）
 
