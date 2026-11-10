@@ -1,0 +1,8 @@
+{
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "workbench.tree.indent": 18,
+    "editor.formatOnPaste": true,
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+}
