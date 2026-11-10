@@ -42,6 +42,51 @@ graph TD
 > 总时长 30 个月：**Phase 1 计算机基础 + C/C++（M1–M12，12 个月）** → **Phase 2 Golang 后端技术栈（M13–M30，18 个月）**。
 > 全程**项目实践驱动**：每个月都有可运行、可展示的交付物；理论服务于项目，项目反过来逼出理论的深度。
 
+## 仓库结构
+
+本仓库是 2.5 年学习的**总控仓库**（计划 + 笔记 + 刷题 + 日志）；6 个主线项目各自独立建仓，`projects/README.md` 只做索引。
+
+```
+backend/
+├── README.md                     # 2.5 年计划（总入口）
+├── docs/
+│   ├── plan/
+│   │   └── adjustments.md        # 计划变更日志（延期、节奏调整、目标修订）
+│   ├── resources.md              # 资源清单：书/课程/链接 + 阅读状态跟踪
+│   └── templates/
+│       ├── weekly.md             # 周记模板（本周产出 / 卡点 / 下周计划）
+│       ├── monthly-review.md     # 月度复盘模板
+│       └── self-check.md         # 月度自检清单（可勾选版）
+├── notes/                        # 技术笔记，按计划的 11 个模块组织
+│   ├── 01-cpp/                   # M1–M4
+│   ├── 02-dsa/                   # M5–M7
+│   ├── 03-computer-organization/ # M8
+│   ├── 04-os/                    # M9
+│   ├── 05-network/               # M10
+│   ├── 06-database/              # M11–M12
+│   ├── 07-go/                    # M13–M15
+│   ├── 08-web/                   # M16–M19
+│   ├── 09-microservices/         # M20–M22
+│   ├── 10-distributed/           # M23–M26
+│   └── 11-system-design/         # M27–M28
+├── algorithms/                   # 刷题线（全程不断）
+│   ├── README.md                 # 刷题统计表：进度、错题重做记录
+│   ├── solutions/                # 题解，按专题分目录（文件名：题号-名称.语言）
+│   │   ├── array-linkedlist/  hash/  two-pointers/  stack-queue/
+│   │   ├── binary-tree/  heap/  binary-search/  string/
+│   │   └── graph/  dp/  backtracking/  greedy/
+│   └── templates/                # 手撕模板：二分、图、DP、链表骨架
+├── logs/
+│   ├── weekly/                   # 2026-W46.md ...（每周一份）
+│   └── monthly/                  # 2026-11.md ...（月度复盘，对应 git tag）
+├── projects/
+│   └── README.md                 # 6 个主线项目索引：链接 + 状态 + 收官标准
+├── blog/                         # 对外输出文章（草稿 → 成稿）
+└── interview/                    # M29–M30 使用
+    ├── qbank/                    # 面试题库：每题 = 原理 + 项目佐证
+    └── system-design/            # 系统设计文档 5+ 篇
+```
+
 ## 0. 总原则
 
 1. **项目驱动，不是课程驱动**。每学一个知识点，必须在项目里用一次；用不上的知识先不学。
