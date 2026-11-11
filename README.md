@@ -2,8 +2,8 @@
 
 ```mermaid
 graph TD
-    subgraph P1["🟢 Phase 1 · 计算机基础 + C/C++（M1-12）"]
-        CPP["现代 C++<br/>M1-4"]
+    subgraph P1["🟢 Phase 1 · 计算机基础 + C++（M1-12）"]
+        CPP["现代 C++（C++23）<br/>M1-4"]
         DSA["数据结构与算法<br/>M5-7"]
         CORE["计组 + 操作系统<br/>M8-9"]
         NET["计算机网络 + 用户态 TCP/IP<br/>M10"]
@@ -39,7 +39,7 @@ graph TD
 
 ---
 
-> 总时长 30 个月：**Phase 1 计算机基础 + C/C++（M1–M12，12 个月）** → **Phase 2 Golang 后端技术栈（M13–M30，18 个月）**。
+> 总时长 30 个月：**Phase 1 计算机基础 + C++（M1–M12，12 个月）** → **Phase 2 Golang 后端技术栈（M13–M30，18 个月）**。
 > 全程**项目实践驱动**：每个月都有可运行、可展示的交付物；理论服务于项目，项目反过来逼出理论的深度。
 
 ## 仓库结构
@@ -99,14 +99,15 @@ backend/
    - 周末：5h/天（项目为主）
    - 合计 ≈ **20h/周**，每月 ≈ 80h
 5. **验收标准**：每月底做一次自检（见「每月自检清单」），不合格不带病推进——降速补课，宁可延后 1 个月，不留下理解债。
+6. **C 语言不单独安排学习时间**：C++ 已覆盖绝大部分 C 语法结构；后续项目用到 C 时直接查文档（K&R / man 手册），不为其分配专门周。
 
 ---
 
-## Phase 1 · 计算机基础 + C/C++（M1–M12）
+## Phase 1 · 计算机基础 + C++（M1–M12）
 
 ### 阶段目标
 
-- 精通现代 C++（重点），理解从源码到二进制的完整链路。
+- 精通现代 C++，以 **C++23** 为基线标准（重点），理解从源码到二进制的完整链路。
 - 手写核心数据结构与算法，复杂度分析成为本能。
 - 吃透 CSAPP 级别的系统观：缓存、并发、虚拟内存、I/O。
 - 理解数据库内核：索引、事务、日志、恢复。
@@ -119,36 +120,37 @@ backend/
 
 #### M1 · C++ 基础语法与底层工具链（快节奏打底）
 
-- C++ 基础语法速通（覆盖绝大部分 C 语法结构）：类型/控制流/函数、指针与数组、字符串（C 字符串 + `std::string`）、结构体、引用 vs 指针、函数重载/默认参数、命名空间
+- C++23 基础语法速通（覆盖绝大部分 C 语法结构）：类型/控制流/函数、指针与数组、字符串（C 字符串 + `std::string`/`std::string_view`）、结构体、引用 vs 指针、函数重载/默认参数、命名空间、`auto` 与结构化绑定
 - 动态内存：`new/delete`、常见内存错误；valgrind / ASan（`-fsanitize=address`）
-- 工具链：g++（编译链接全流程 `-E -S -c`、静态/动态库）、GDB（断点、watch、backtrace、core dump）、Makefile/CMake 入门
+- 工具链：g++ 15（**基线 `-std=c++23`**，编译链接全流程 `-E -S -c`、静态/动态库）、GDB（断点、watch、backtrace、core dump）、Makefile/CMake 入门
 - Linux 基础：shell、文件权限、进程查看、`/proc`
-- **交付**：C++ 基础练习集（字符串处理 + `vec` 类 + 单元测试）；GDB 实战调试记录（4 个刻意 bug 定位成文）；工具链产物观察笔记
+- **交付**：C++ 基础练习集（字符串处理用上 `std::string_view`/`std::format` + `vec` 类 + 单元测试）；GDB 实战调试记录（4 个刻意 bug 定位成文）；工具链产物观察笔记
 - 阅读：《C++ Primer》(第 5 版) 第 1–4 章 + Beej's Network Programming 前 2 章（概念预热）
 
-#### M2 · C 语言专题周 + C++ 核心（面向对象 + 资源管理）
+#### M2 · C++ 核心（面向对象 + 资源管理）
 
-- **W1 C 语言专题周**（C++ 基础完成后集中 1 周）：C 与 C++ 的差异（无重载/引用/命名空间）、`malloc/free` 手动内存管理、函数指针与回调、`qsort`、C/C++ 混合编译（`extern "C"`）、纯 C 的 Makefile
-- **W2–W4 C++ 核心**：类与对象、构造/析构、拷贝控制（三/五法则）、运算符重载；RAII——本阶段最重要的思想；异常安全；`const` 体系、`static_cast` 系列；STL 第一遍：`vector/deque/list/map/unordered_map` 的使用与复杂度
-- **交付**：W1 交付 **c-utils**（纯 C 动态数组 + 字符串库 + 单元测试，valgrind 零报告）；W4 交付 **mini-kv-cpp 立项**——实现 `get/set/del` 的内存版 KV（哈希表 + 链地址法），带 Benchmark 脚本
-- 阅读：K&R《C 程序设计语言》选读（W1）；《C++ Primer》(第 5 版) 第 5–13 章（W2–W4）
+- 类与对象、构造/析构、拷贝控制（三/五法则、`= default`/`= delete`）、运算符重载；RAII——本阶段最重要的思想；异常安全；`const` 体系、`static_cast` 系列
+- STL 第一遍：`vector/deque/list/map/unordered_map` 的使用与复杂度
+- **交付**：**mini-kv-cpp 立项**——实现 `get/set/del` 的内存版 KV（哈希表 + 链地址法），带 Benchmark 脚本
+- 阅读：《C++ Primer》(第 5 版) 第 5–13 章
 
-#### M3 · 现代 C++（移动语义 + 模板 + STL 源码）
+#### M3 · 现代 C++（C++11→17 演进 + C++20/23 新标准）
 
 - 右值引用、移动语义、完美转发；智能指针（`unique_ptr/shared_ptr/weak_ptr`）
-- 模板：函数/类模板、特化、SFINAE 初步、变参模板
+- 模板进阶：函数/类模板、特化、SFINAE → **concepts**、变参模板
+- **C++20/23 新特性**：`ranges`、协程（coroutines）、modules、`consteval/constinit`、三路比较 `<=>`、`std::format`/`std::print`/`std::println`、`std::expected`、`std::span`/`mdspan`、`flat_map/flat_set`
 - STL 源码选读：`vector` 扩容、`unordered_map`、迭代器与 allocator 概览
 - lambda、`std::function`、`optional/variant/any`
-- **交付**：mini-kv-cpp v0.2——自实现跳表（skip list）作为索引 + 迭代器接口；给 KV 写 C++ 模板版序列化器
-- 阅读：《Effective Modern C++》条款 1–30；cppreference 养成查阅习惯
+- **交付**：mini-kv-cpp v0.2——自实现跳表（skip list）作为索引 + 迭代器接口；给 KV 写 C++ 模板版序列化器（用 `std::format`）；**用 ranges/concepts 重构一处接口**
+- 阅读：《Effective Modern C++》条款 1–30；《C++20 - The Complete Guide》+《C++23 - The Complete Guide》(Josuttis) 选读；cppreference 养成查阅习惯（以 C++23 为准）
 
 #### M4 · C++ 并发 + 工程化
 
-- 内存模型与原子操作（`atomic`、memory order 概念级）、互斥锁、条件变量、`std::thread/async/future`
+- 内存模型与原子操作（`atomic`、memory order 概念级）、互斥锁、条件变量、`std::thread/async/future`；C++20 并发原语：`std::jthread`/`stop_token`、`semaphore`、`latch/barrier`
 - 死锁四条件、锁的粒度与性能；无锁结构概念（不深入实现）
 - CMake 工程化：多目录、第三方库引入、GoogleTest、sanitizer（ASan/TSan）
 - **交付**：mini-kv-cpp v0.3——**WAL（预写日志）+ 崩溃恢复** + 并发读写（读写锁）；CI（GitHub Actions 编译 + 测试 + sanitizer）
-- 阅读：《C++ Concurrency in Action》第 1–7 章
+- 阅读：《C++ Concurrency in Action》第 1–7 章（基于 C++11/17，C++20 新原语对照 cppreference）
 
 #### M5 · 数据结构（一）：线性结构 + 排序
 
@@ -349,7 +351,7 @@ backend/
 
 | # | 项目 | 时间 | 技术点 | 收官标准 |
 |---|------|------|--------|----------|
-| 1 | mini-kv-cpp | M1–M7 | C++、跳表/B+树、WAL、并发、CMake/CI | v1.0 tag + 压测/恢复测试报告 |
+| 1 | mini-kv-cpp | M1–M7 | C++23、跳表/B+树、WAL、并发、CMake/CI | v1.0 tag + 压测/恢复测试报告 |
 | 2 | user-tcpip | M10 | socket、TCP 状态机、协议实现 | curl 能访问自研 HTTP demo |
 | 3 | mini-db | M11–M12 | B+树、缓冲池、WAL/MVCC、SQL 解析 | 跑通 SQL 逻辑测试集 |
 | 4 | url-shortener-pro | M16–M19 | Go、MySQL、Redis、MQ、Docker | Compose 一键起 + 压测报告 |
@@ -372,7 +374,7 @@ backend/
 
 ## 核心资源
 
-**C/C++**：《C++ Primer》→《Effective Modern C++》→《C++ Concurrency in Action》；cppreference；《STL 源码剖析》选读
+**C++**（基线 C++23）：《C++ Primer》（基础，止于 C++11）→《Effective Modern C++》→《C++20 - The Complete Guide》+《C++23 - The Complete Guide》(Josuttis)→《C++ Concurrency in Action》；cppreference（以 C++23 为准）；《STL 源码剖析》选读；C 语言不单独安排学习，用到时查 K&R / man 手册
 **算法**：LeetCode（Hot 100 → 剑指 Offer → 专题）；《算法（第 4 版）》；《Hello 算法》；《算法导论》工具书
 **计组**：《深入理解计算机系统》(CSAPP) + CMU 15-213 Lab
 **操作系统**：《OSTEP》+ MIT 6.S081 (xv6) 实验（至少做 2 个）；APUE 选读

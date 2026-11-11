@@ -2,16 +2,18 @@
 
 > 阅读/学习状态跟踪：⬜ 未开始 · 📖 进行中 · ✅ 完成 · 📌 暂缓
 
-## C/C++
+## C++
 
 | 资源 | 类型 | 对应阶段 | 状态 | 备注 |
 |------|------|----------|------|------|
-| 《C 程序设计语言》(K&R) | 书 | M2-W1 | ⬜ | C 语言专题周选读 |
-| 《C++ Primer》(第 5 版) | 书 | M1–M3 | ⬜ | 主线（C++ 先行） |
-| 《Effective Modern C++》 | 书 | M3 | ⬜ | |
-| 《C++ Concurrency in Action》 | 书 | M4 | ⬜ | |
+| 《C 程序设计语言》(K&R) | 书 | 按需 | 📌 | 不单独学习 C，项目用到时当工具书查阅 |
+| 《C++ Primer》(第 5 版) | 书 | M1–M2 | ⬜ | 打基础（止于 C++11），C++20/23 特性靠 Josuttis 两本补齐 |
+| 《Effective Modern C++》 | 书 | M3 | ⬜ | C++11/14 条款，思想不过时 |
+| 《C++20 - The Complete Guide》(Josuttis) | 书 | M3 | ⬜ | C++20 特性主参考 |
+| 《C++23 - The Complete Guide》(Josuttis) | 书 | M3 | ⬜ | 2026-09 出版，C++23 特性主参考 |
+| 《C++ Concurrency in Action》 | 书 | M4 | ⬜ | C++11/17；C++20 并发原语查 cppreference |
 | 《STL 源码剖析》 | 书 | M3 | ⬜ | 选读 |
-| cppreference | 文档 | 全程 | ⬜ | 当字典用 |
+| cppreference | 文档 | 全程 | ⬜ | 当字典用，以 C++23 标准为准 |
 
 ## 算法
 
