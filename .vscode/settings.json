@@ -1,0 +1,10 @@
+{
+    "editor.fontSize": 20,
+    "terminal.integrated.fontSize": 20,
+    "workbench.tree.indent": 18,
+    "editor.formatOnPaste": true,
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "clangd.checkUpdates": true,
+    "notebook.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+}
